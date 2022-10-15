@@ -1,8 +1,8 @@
-# PRINTF
-**custom printf function**
+# printf
+* **Custom printf function**
 
 ## Resources
 
 ## Authors
-* **Asere Oluwatumise** - [Tumixs](https://github.com/Tumixs)
+* **Asere Oluwatumise S.** - [Tumixs](https://github.com/Tumixs)
 * **Alex-bennet Esien** - []()
