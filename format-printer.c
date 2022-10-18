@@ -15,6 +15,7 @@ int format_printer(char k, va_list arg)
 	char *s;
 	int i;
 	int d;
+
 	switch (k)
 	{
 		case 'c':
@@ -42,8 +43,10 @@ int format_printer(char k, va_list arg)
 			d = va_arg(arg, int);
 			counter += arrayprinter(base_converter(d, 10));
 			break;
+		case '%':
+			counter += _putchar('%');
+
 
 	}
 	return (counter);
-	
 }

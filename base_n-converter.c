@@ -15,8 +15,8 @@ char *base_converter(int num, int base_n)
 	static char buffer[50];
 	static char *digits = "0123456789ABCDEF";
 	char sign = 0;
-	unsigned  n = num;
-	
+	unsigned int n = num;
+
 	if (num < 0)
 	{
 		n = -num;
