@@ -13,8 +13,8 @@ int format_printer(char k, va_list arg)
 	int counter = 0;
 	int c;
 	char *s;
-	long int j;
-
+	int i;
+	int d;
 	switch (k)
 	{
 		case 'c':
@@ -34,19 +34,16 @@ int format_printer(char k, va_list arg)
 
 			break;
 		case 'i':
-			j = va_arg(arg, long int);
-			if (j < 0)
-				_putchar('-');
-			counter += arrayprinter(base_converter(j, 10));
+			i = va_arg(arg, int);
+			counter += arrayprinter(base_converter(i, 10));
 			break;
 
 		case 'd':
-			j = va_arg(arg, long int);
-			if (j < 0)
-				_putchar('-');
-			counter += arrayprinter(base_converter(j, 10));
+			d = va_arg(arg, int);
+			counter += arrayprinter(base_converter(d, 10));
 			break;
 
 	}
 	return (counter);
+	
 }
