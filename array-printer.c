@@ -1,9 +1,13 @@
 #include "main.h"
 
 /**
+ * arrayprinter - prints an array of character
+ * @array: array to print
  *
+ * Description: will not print if array is NULL
+ * Return: returns an integer- the number of character printed
  */
-int arrayprinter(char * array)
+int arrayprinter(char *array)
 {
 	int i = 0;
 
