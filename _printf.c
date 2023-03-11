@@ -11,26 +11,27 @@
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int counter = 0;
+	int counter = 0, i, counter2;
 
 	va_start(arg, format);
-	if (!format || (format[0] == '%' && !format[1]))
+	if (!format)
 		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	for (; *format; format++)
+	for (i = 0; format[i]; i++)
 	{
-		while (*format != '%')
+		while (format[i] != '%')
 		{
-			if (*format == '\0')
+			if (format[i] == '\0')
 				return (counter);
-			_putchar(*format);
-			format++;
+			_putchar(format[i]);
 			counter++;
+			i++;
 		}
-		format++;
-		counter += format_printer(*format, arg);
+		i++;
+
+		counter2 = format_printer(format, &i, arg);
+		if (counter2 == -1)
+			return (-1);
+		counter += counter2;
 	}
 	return (counter);
 }
-

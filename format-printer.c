@@ -8,7 +8,7 @@
  * Description: ---
  * Return: returns the number of char printed
  */
-int format_printer(char k, va_list arg)
+int format_printer(const char *k, int *ind, va_list arg)
 {
 	int counter = 0;
 	int c;
@@ -16,37 +16,38 @@ int format_printer(char k, va_list arg)
 	int i;
 	int d;
 
-	switch (k)
+	switch (k[*ind])
 	{
-		case 'c':
-			c = va_arg(arg, int);
-			_putchar(c);
+	case 'c':
+		c = va_arg(arg, int);
+		_putchar(c);
+		counter++;
+		break;
+
+	case 's':
+		s = va_arg(arg, char *);
+		while (*s != '\0')
+		{
+			_putchar(*s);
+			s++;
 			counter++;
-			break;
+		}
 
-		case 's':
-			s = va_arg(arg, char *);
-			while (*s != '\0')
-			{
-				_putchar(*s);
-				s++;
-				counter++;
-			}
+		break;
+	case 'i':
+		i = va_arg(arg, int);
+		counter += arrayprinter(base_converter(i, 10));
+		break;
 
-			break;
-		case 'i':
-			i = va_arg(arg, int);
-			counter += arrayprinter(base_converter(i, 10));
-			break;
-
-		case 'd':
-			d = va_arg(arg, int);
-			counter += arrayprinter(base_converter(d, 10));
-			break;
-		case '%':
-			counter += _putchar('%');
-
-
+	case 'd':
+		d = va_arg(arg, int);
+		counter += arrayprinter(base_converter(d, 10));
+		break;
+	case '%':
+		counter += _putchar('%');
+		break;
+	default:
+		return (-1);
 	}
 	return (counter);
 }
