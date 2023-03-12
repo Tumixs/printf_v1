@@ -4,13 +4,14 @@
  * format_printer - prints according to fromat specifier
  * @k: format specifier
  * @arg: array of arguments
+ * @ind: index of char
  *
  * Description: ---
  * Return: returns the number of char printed
  */
 int format_printer(const char *k, int *ind, va_list arg)
 {
-	int counter = 0;
+	int counter = 0, stray_len = 0;
 	int c;
 	char *s;
 	int i;
@@ -46,8 +47,12 @@ int format_printer(const char *k, int *ind, va_list arg)
 	case '%':
 		counter += _putchar('%');
 		break;
-	default:
+	case '\0':
 		return (-1);
+	default:
+		_putchar('%');
+		stray_len += write(1, (&k[*ind]), 1);
+		return (stray_len);
 	}
 	return (counter);
 }
