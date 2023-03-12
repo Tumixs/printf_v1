@@ -50,7 +50,7 @@ int format_printer(const char *k, int *ind, va_list arg)
 	case '\0':
 		return (-1);
 	default:
-		_putchar('%');
+		stray_len += _putchar('%');
 		stray_len += write(1, (&k[*ind]), 1);
 		return (stray_len);
 	}
