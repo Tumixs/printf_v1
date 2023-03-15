@@ -9,11 +9,12 @@
  */
 int arrayprinter(char *array)
 {
-	int i = 0;
+	int i = 1;
 
 	while (*array)
 	{
 		_putchar(*array++);
+		i++;
 	}
 	return (i);
 }
