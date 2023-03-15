@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * format_printer - prints according to fromat specifier
+ * format_printer - prints according to conversion specifier
  * @k: format specifier
  * @arg: array of arguments
  * @ind: index of char
