@@ -14,7 +14,7 @@ int format_printer(const char *k, int *ind, va_list arg)
 	int counter = 0, stray_len = 0;
 	int c;
 	char *s;
-	int i, b;
+	int i, b, o, x, X;
 	int u;
 	int d;
 
@@ -58,11 +58,17 @@ int format_printer(const char *k, int *ind, va_list arg)
 		u = va_arg(arg, int);
 		counter += arrayprinter(base_converter(u, 'u'));
 		break;
-	case 'o':/**/
+	case 'o':
+		o = va_arg(arg, int);
+		counter += arrayprinter(base_converter(o, 8));
 		break;
 	case 'x':
+		x = va_arg(arg, int);
+		counter += arrayprinter(base_converter(x, 'x'));
 		break;
 	case 'X':
+		X = va_arg(arg, int);
+		counter += arrayprinter(base_converter(X, 16));
 		break;
 	case '\0':
 		return (-1);

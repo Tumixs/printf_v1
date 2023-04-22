@@ -30,6 +30,8 @@ char *base_converter(int num, int base_n)
 	}
 	if (base_n == 'u')
 		base_n = 10;
+	if (base_n == 'x')
+		digits = "0123456789absdef";
 	ptr = &buffer[49];
 	*ptr = '\0';
 	do {
