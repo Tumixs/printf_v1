@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#define UINT_MAX 4294967295
+/* #define UINT_MAX 4294967295 */
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>

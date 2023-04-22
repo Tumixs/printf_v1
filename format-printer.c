@@ -12,11 +12,8 @@
 int format_printer(const char *k, int *ind, va_list arg)
 {
 	int counter = 0, stray_len = 0;
-	int c;
 	char *s;
-	int i, b, o, x, X;
-	int u;
-	int d;
+	int c, i, d, u, b, o, x, X;
 
 	switch (k[*ind])
 	{
