@@ -15,6 +15,7 @@ int format_printer(const char *k, int *ind, va_list arg)
 	int c;
 	char *s;
 	int i, b;
+	int u;
 	int d;
 
 	switch (k[*ind])
@@ -27,6 +28,8 @@ int format_printer(const char *k, int *ind, va_list arg)
 
 	case 's':
 		s = va_arg(arg, char *);
+		if (s == NULL)
+			s = "(null)";
 		while (*s != '\0')
 		{
 			_putchar(*s);
@@ -48,8 +51,18 @@ int format_printer(const char *k, int *ind, va_list arg)
 		b = va_arg(arg, int);
 		counter += arrayprinter(base_converter(b, 2));
 		break;
-	case '%':
+		case '%':
 		counter += _putchar('%');
+		break;
+	case 'u':
+		u = va_arg(arg, int);
+		counter += arrayprinter(base_converter(u, 'u'));
+		break;
+	case 'o':/**/
+		break;
+	case 'x':
+		break;
+	case 'X':
 		break;
 	case '\0':
 		return (-1);

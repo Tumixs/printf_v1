@@ -16,12 +16,20 @@ char *base_converter(int num, int base_n)
 	static char *digits = "0123456789ABCDEF";
 	char sign = 0;
 	unsigned int n = num;
-
+	
+	
 	if (num < 0)
 	{
 		n = -num;
 		sign = '-';
+		if (base_n == 'u')
+		{
+			sign = 0;
+			n = (UINT_MAX + 1) - (-num); 
+		}
 	}
+	if (base_n == 'u')
+		base_n = 10;
 	ptr = &buffer[49];
 	*ptr = '\0';
 	do {
