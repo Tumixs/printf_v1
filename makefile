@@ -1,0 +1,2 @@
+# -*-Makefile-*-
+include test/makefile
