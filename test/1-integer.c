@@ -41,4 +41,7 @@ void num_spec(void)
 	_printf("%d", INT_MIN);
 	printf(" %d", INT_MIN);
 	putchar('\n');
+	_printf("%d", UINT_MAX);
+	printf(" %ld", UINT_MAX);
+	putchar('\n');
 }

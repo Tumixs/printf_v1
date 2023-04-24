@@ -22,16 +22,9 @@ int main(void)
  */
 void bintest(void)
 {
-	int len1, len2;
 
-	len1 = _printf("%b", -1024);
-	putchar('\n');
-	len2 = printf("%b", -1024);
-	putchar('\n');
-	_printf("len1: %d, len2: %d", len1, len2);
-	putchar('\n');
-	_printf("%b", UINT_MAX);
-	putchar('\n');
-	printf("%b", UINT_MAX);
-	putchar('\n');
+	_printf("8: %b\n", 8);
+	_printf("-1024: %b\n", -1024);
+	_printf("UINT_MAX: %b\n", UINT_MAX);
+	_printf("INT_MAX: %b\n", INT_MAX);
 }
