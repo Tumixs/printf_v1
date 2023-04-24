@@ -7,8 +7,8 @@ RM = rm -f
 
 $(OBJ): main.h
 
-char: $(OBJ) 0-char_test.c
-	$(CC) $(CFLAGS) $(OBJ) 0-char_test.c -o char
+char: $(OBJ) test/0-char_test.c
+	$(CC) $(CFLAGS) $(OBJ) test/0-char_test.c -o char
 
 int: $(OBJ) test/1-integer_test.c
 	$(CC) $(CFLAGS) $(OBJ) test/1-integer_test.c -o int
@@ -31,4 +31,5 @@ hex_lower: $(OBJ) test/6-hex_lower_test.c
 oclean:
 	$(RM) ../*.o *.o
 cleanall:
-	$(RM) ../*.o *.o char int bin oct hex_lower hex_upper
+	$(RM) ../*.o *.o char int bin uint oct hex_lower hex_upper
+.makeall: char int bin uint oct hex_lower hex_upper 

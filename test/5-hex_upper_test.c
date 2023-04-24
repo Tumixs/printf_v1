@@ -37,6 +37,8 @@ void hex_upper_test(void)
 	/* Testing defined limits */
 	_printf("UINT_MAX: %X\t", UINT_MAX);
 	printf("UINT_MAX: %X\n", UINT_MAX);
+	_printf("UINT_MAX + 1024: %X\t", UINT_MAX + 1024);
+	printf("UINT_MAX + 1024: %X\n", UINT_MAX + 1024);
 	_printf("INT_MAX: %X\t", INT_MAX);
 	printf("INT_MAX: %X\n", INT_MAX);
 	/* End of test */

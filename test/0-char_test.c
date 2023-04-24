@@ -34,6 +34,10 @@ void wrongspecifier(void)
 	printf("%d\n%d\n%d\n%d\n%d\n%d\n", len1, len2, len3, len4, len5, len6);
 	/* End of test */
 
+
+	_printf("%: %%");
+	printf(" %%");
+	putchar('\n');
 	_printf("I just printed this with `_printf`\n");
 	printf("I just printed this with `printf`\n");
 	_printf("%s with _printf\n", str1);

@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * base_converter - converts given number to desired base_n
@@ -20,16 +21,16 @@ char *base_converter(long int num, int base_n)
 	long int n = num;
 
 	/* checks for -ve numbers, negative %u overflows */
-	/* if (num < 0) */
-	/* { */
-	/* 	n = -num; */
-	/* 	sign = '-'; */
-	/* 	if (base_n == 'u') */
-	/* 	{ */
-	/* 		sign = 0; */
-	/* 		n = (UINT_MAX + 1) - (-num); */
-		/* } */
-	/* } */
+	if (num < 0)
+	{
+		n = -num;
+		sign = '-';
+		if (base_n == 'u')
+		{
+			sign = 0;
+			n = (UINT_MAX + 1) - (-num);
+		}
+	}
 	if (base_n == 'u')
 		base_n = 10;
 	if (base_n == 'x')
@@ -38,8 +39,8 @@ char *base_converter(long int num, int base_n)
 		base_n = 16;
 	}
 	ptr = &buffer[49];
-	*ptr = '\0'; 
-	
+	*ptr = '\0';
+
 	do {
 		*--ptr = digits[n % base_n];
 		n /= base_n;
