@@ -16,8 +16,7 @@ char *base_converter(int num, int base_n)
 	static char *digits = "0123456789ABCDEF";
 	char sign = 0;
 	unsigned int n = num;
-	
-	
+
 	if (num < 0)
 	{
 		n = -num;
@@ -25,16 +24,17 @@ char *base_converter(int num, int base_n)
 		if (base_n == 'u')
 		{
 			sign = 0;
-			n = (UINT_MAX + 1) - (-num); 
+			n = (UINT_MAX + 1) - (-num);
 		}
 	}
 	if (base_n == 'u')
 		base_n = 10;
 	if (base_n == 'x')
-		digits = "0123456789absdef";
+		digits = "0123456789abcdef";
 	ptr = &buffer[49];
 	*ptr = '\0';
-	do {
+	do
+	{
 		*--ptr = digits[n % base_n];
 		n /= base_n;
 	} while (n != 0);
